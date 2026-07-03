@@ -22,11 +22,30 @@ struct OnBoarding: View {
 			VStack {
 				switch onboardStep {
 				case .welcome:
-					Text(
+					Button {
+						//action
+						onboardStep = .permissions
+					} label: {
+						Text("다음")
+					}
+
 				case .permissions:
-					<#code#>
+					Text("permissions")
+					Button {
+						// action
+						onboardStep = .done
+					} label: {
+						Text("다음")
+					}
+
 				case .done:
-					<#code#>
+					Button {
+						//action
+						onboardStep = .welcome
+					} label: {
+						Text("시작하기")
+					}
+
 				}
 			}
 		}

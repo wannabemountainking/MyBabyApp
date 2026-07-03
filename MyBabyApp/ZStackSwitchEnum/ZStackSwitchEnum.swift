@@ -22,16 +22,17 @@ struct ZStackSwitchEnum: View {
 			case .profile:
 				YourView {
 					Text("ProfileView")
-						.transition(.opacity)
+						.transition(.move(edge: .top))
 				}
 			case .settings:
 				YourView {
-					Text("SettingsView")						.transition(.opacity)
+					Text("SettingsView")
+						.transition(.move(edge: .bottom))
 				}
 			case .about:
 				YourView {
 					Text("AboutView")
-						.transition(.opacity)
+						.transition(.move(edge: .leading))
 				}
 			}
 		}
