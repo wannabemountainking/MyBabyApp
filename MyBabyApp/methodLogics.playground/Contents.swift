@@ -98,13 +98,23 @@ func resetScore() {
 	}
 }
 
-resetScore()
-print(retakeList)
-print(students)
+//resetScore()
+//print(retakeList)
+//print(students)
 
 
 func switchToDecimal(hex: String) -> (r: Int, g: Int, b: Int) {
 	guard let intHex = Int(hex.trimmingCharacters(in: CharacterSet(charactersIn: "#")), radix: 16) else { fatalError("잘못된 값 입력") }
-	let red = Double(intHex >> 16 & 0xFF) / 255
-	let green = Double(intHex >> 8 & 0xFF) / 255
+	let red = intHex >> 16 & 0xFF
+	let green = intHex >> 8 & 0xFF
+	let blue = intHex & 0xFF
+	return (r: red, g: green, b: blue)
 }
+
+print(switchToDecimal(hex: "#FF6B6B"))
+
+func toHexString(r: Int, g: Int, b: Int) -> String {
+	let intHex = r << 16 | g << 8 | b << 0
+	return String(format: "#%06X", intHex)
+}
+print(toHexString(r: 255, g: 107, b: 107))
